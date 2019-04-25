@@ -3,6 +3,9 @@ const app = express();
 require('dotenv').config();
 const massive = require('massive');
 const session = require('express-session');
+app.use(express.json());
+const authController = require('./controllers/authController');
+
 
 massive(process.env.CONNECTION_STRING)
 .then(db => {
@@ -21,6 +24,7 @@ app.use(session({
     }
 }))
 
+app.post('/api/register', authController.registerUser)
 
 
 app.listen(5050, () => console.log('Listening on port 5050'))
