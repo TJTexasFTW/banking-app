@@ -8,8 +8,6 @@ function App() {
   return (
     <HashRouter>
       <div className="App">
-        <input />
-        <input type='password'/>
         {routes}
       </div>
 
